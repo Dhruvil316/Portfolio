@@ -16,7 +16,7 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (formData._honey) return; // bot trap
+    if (formData._honey) return; 
 
     const response = await fetch("https://formsubmit.co/ajax/ai.dboyd01@gmail.com", {
       method: "POST",

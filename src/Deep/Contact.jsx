@@ -6,7 +6,7 @@ const Contact = () => {
     name: "",
     email: "",
     message: "",
-    _honey: "", // spam trap
+    _honey: "", 
   });
 
   const handleChange = (e) => {

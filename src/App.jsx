@@ -4,6 +4,7 @@ import Hero from "./Deep/Hero";
 import About from "./Deep/About";
 import Projects from "./Deep/Projects";
 import Contact from "./Deep/Contact";
+import TechnicalSkills from "./Deep/TechnicalSkills";
 
 function App() {
   const scrollToSection = (id) => {
@@ -18,6 +19,7 @@ function App() {
         <Navbar scrollToSection={scrollToSection} />
         <Hero />
         <About />
+        <TechnicalSkills/>
         <Projects />
         <Contact />
       </div>

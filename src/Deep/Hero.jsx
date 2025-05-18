@@ -6,10 +6,8 @@ import { useEffect } from "react";
 import SocialLinks from "./SocialLinks";
 import AnimatedBackground from "./AnimatedBackground";
 
-import image1 from "../Assets/paint.png"; // Purple splash
-import image2 from "../Assets/profile1.png"; // Profile image
-
-const skills = ["HTML5", "CSS", "JavaScript", "Node.js", "React", "Git", "GitHub"];
+import image1 from "../Assets/paint.png";
+import image2 from "../Assets/profile1.png";
 
 const Hero = () => {
   const profileVariants = {
@@ -18,19 +16,6 @@ const Hero = () => {
       scale: 1,
       rotateY: 0,
       transition: { type: "spring", stiffness: 100, damping: 20 },
-    },
-  };
-
-  const skillVariants = {
-    initial: { opacity: 0, y: 50 },
-    animate: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 25,
-      },
     },
   };
 
@@ -57,6 +42,11 @@ const Hero = () => {
     triggerOnce: false,
   });
 
+  const handleResumeClick = () => {
+    const resumeUrl = 'https://drive.google.com/file/d/1lhhjShR7p2zt3-RPAabxThqaKtob7iJX/view?usp=sharing';
+    window.open(resumeUrl, '_blank');
+  };
+
   useEffect(() => {
     if (textInView) {
       revealControls.start("visible");
@@ -72,9 +62,7 @@ const Hero = () => {
     >
       <AnimatedBackground />
 
-      {/* Content Wrapper */}
       <div className="relative z-10 flex flex-col-reverse md:flex-row items-center justify-between w-full max-w-6xl gap-10">
-        {/* Text Area */}
         <div
           ref={textRef}
           className="text-center md:text-left w-full md:w-1/2 flex flex-col justify-center"
@@ -99,7 +87,7 @@ const Hero = () => {
             Software Development Engineer
           </motion.p>
 
-          <motion.div
+          {/* <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-6 overflow-hidden"
             variants={boxRevealVariant}
             initial="hidden"
@@ -111,6 +99,25 @@ const Hero = () => {
             </button>
             <button className="border border-purple-500 text-purple-300 px-5 py-2 rounded-md hover:bg-purple-700 hover:text-white transition">
               My resume
+            </button>
+          </motion.div> */}
+
+          <motion.div
+            className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-6 overflow-hidden"
+            variants={boxRevealVariant}
+            initial="hidden"
+            animate={revealControls}
+            transition={{ delay: 0.4 }}
+          >
+            <button className="bg-purple-600 text-white px-5 py-2 rounded-md hover:bg-purple-700 transition">
+              Got a project?
+            </button>
+            <button
+              onClick={handleResumeClick}
+              className="border border-purple-500 text-purple-300 px-5 py-2 rounded-md hover:bg-purple-700 hover:text-white transition group relative overflow-hidden"
+            >
+              <span className="relative z-10">My resume</span>
+              <div className="absolute inset-0 bg-purple-500 opacity-0 group-hover:opacity-10 transition-opacity" />
             </button>
           </motion.div>
 
@@ -147,32 +154,6 @@ const Hero = () => {
           </div>
         </motion.div>
       </div>
-
-      {/* Skills Section at the bottom */}
-      {/* <div className="absolute bottom-10 w-full flex justify-center">
-        <motion.div
-          className="flex flex-wrap gap-6 justify-center text-gray-400 text-sm sm:text-base"
-          initial="initial"
-          animate="animate"
-          variants={{
-            animate: {
-              transition: {
-                staggerChildren: 0.1,
-              },
-            },
-          }}
-        >
-          {skills.map((skill, index) => (
-            <motion.span
-              key={index}
-              variants={skillVariants}
-              className="hover:text-purple-400 transition"
-            >
-              {skill}
-            </motion.span>
-          ))}
-        </motion.div>
-      </div> */}
     </section>
   );
 };

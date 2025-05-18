@@ -5,6 +5,7 @@ import About from "./Deep/About";
 import Projects from "./Deep/Projects";
 import Contact from "./Deep/Contact";
 import TechnicalSkills from "./Deep/TechnicalSkills";
+import Experience from "./Deep/Experience";
 
 function App() {
   const scrollToSection = (id) => {
@@ -21,6 +22,7 @@ function App() {
         <About />
         <TechnicalSkills/>
         <Projects />
+        <Experience/>
         <Contact />
       </div>
     </>

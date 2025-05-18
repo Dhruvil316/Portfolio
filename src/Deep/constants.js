@@ -1,25 +1,15 @@
 // constants.js
 export const navLinks = [
-  { id: "projects", label: "Projects" },
   { id: "about", label: "About" },
+  { id: "projects", label: "Projects" },
+  { id: "experience", label: "Experience" },
   { id: "contact", label: "Contact" },
 ];
 
-export const projects = [
-  {
-    title: "Project 1",
-    description: "A fantastic project description",
-    tech: ["React", "Tailwind"],
-  },
-  {
-    title: "Project 2",
-    description: "Another awesome project",
-    tech: ["Node.js", "MongoDB"],
-  },
-];
+
 
 export const socialLinks = [
-  { icon: "FaGithub", url: "#" },
-  { icon: "FaLinkedin", url: "#" },
+  { icon: "FaGithub", url: "https://github.com/Dboy3" },
+  { icon: "FaLinkedin", url: "https://www.linkedin.com/in/dhruvil-rana-665067217" },
   { icon: "FaTwitter", url: "#" },
 ];

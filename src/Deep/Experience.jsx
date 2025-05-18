@@ -1,87 +1,134 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
+import { FaBriefcase, FaRocket, FaLaptopCode } from "react-icons/fa";
 
 const experiences = [
   {
-    company: "Shrim Technolabs LLP",
-    duration: "23 December, 2024 – Present",
+    company: "Shrim Technolab",
     role: "Software Development Engineer",
-    industry: "IT / Computers - Software",
-    details: [
-      "Designed and developed 10+ reusable, high-quality components using ReactJS and TypeScript, enhancing maintainability and scalability across multiple projects.",
-      "Debugged and resolved 95% of reported software issues within project deadlines, improving system reliability.",
-      "Collaborated with a cross-functional team in an Agile environment, participating in daily stand-ups, sprint planning, and reviews to ensure timely delivery of 100% of assigned deliverables.",
-      "Ensured code quality through rigorous testing and adherence to best practices, reducing bug occurrence by 20%.",
-    ],
+    duration: "2024 December - Present",
+    icon: <FaBriefcase size={20} />,
+    description:
+      "Developing full-stack applications using modern web technologies and cloud services.",
   },
   {
-    company: "Bestwave Technologies Private Limited",
-    duration: "27 May, 2024 – 12 Jul, 2024",
-    role: "Software Developer Engineer Intern",
-    industry: "IT / Computers - Software",
-    details: [
-      "Contributed to a grocery store project by developing RESTful cart API endpoints using the MVC design pattern with Mongoose, Express, and MongoDB.",
-      "Designed and integrated a responsive frontend cart UI using ReactJS and Tanstack Query, ensuring seamless user interactions with the backend.",
-      "Implemented Redux for efficient state management in the React app, enhancing performance and reliability.",
-      "Collaborated with the team using Agile methodology, attending regular meetings, and ensuring timely delivery of project milestones.",
-    ],
+    company: "Freelance",
+    role: "Full-Stack Developer",
+    duration: "2021 - Present",
+    icon: <FaLaptopCode size={20} />,
+    description:
+      "Delivering custom web solutions for clients across various industries.",
+  },
+  {
+    company: "Bestwave Technologies",
+    role: "Frontend Engineer",
+    duration: "2 Months",
+    icon: <FaRocket size={20} />,
+    description:
+      "Worked on UI development using React.js and implemented responsive designs.",
   },
 ];
 
-const Experience = () => {
-  const [currentExp, setCurrentExp] = useState(0);
+const ExperienceSection = () => {
+  const controls = useAnimation();
+  const [ref, inView] = useInView({
+    threshold: 0.1,
+    triggerOnce: false,
+  });
 
-  const handleNext = () => {
-    setCurrentExp((prev) => (prev + 1) % experiences.length);
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    } else {
+      controls.start("hidden");
+    }
+  }, [controls, inView]);
+
+  const sectionVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        when: "beforeChildren",
+      },
+    },
+    exit: { opacity: 0 },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring", stiffness: 120, damping: 20 },
+    },
   };
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white px-6 py-12">
-      <h2 className="text-4xl font-bold text-purple-400 mb-6 text-center">
-        Experience
-      </h2>
-      <div className="relative w-full max-w-lg">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentExp}
-            className="bg-gray-800 p-6 rounded-xl shadow-lg text-center"
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -100 }}
-            transition={{ duration: 0.5 }}
-          >
-            <h3 className="text-2xl font-semibold text-purple-400">
-              {experiences[currentExp].company}
-            </h3>
-            <p className="text-gray-400 text-sm">
-              {experiences[currentExp].duration}
-            </p>
-            <p className="text-lg font-medium text-gray-300 mt-2">
-              {experiences[currentExp].role}
-            </p>
-            <p className="text-sm text-gray-400 mb-4">
-              {experiences[currentExp].industry}
-            </p>
-            <ul className="text-gray-300 text-left space-y-2">
-              {experiences[currentExp].details.map((point, index) => (
-                <li key={index} className="flex items-start">
-                  <span className="text-purple-400 mr-2">•</span> {point}
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-        </AnimatePresence>
-        <div className="flex justify-center mt-6">
-          <button
-            onClick={handleNext}
-            className="px-6 py-2 bg-purple-500 hover:bg-purple-600 text-white rounded-lg transition"
-          >
-            Next
-          </button>
+    <motion.section
+      ref={ref}
+      initial="hidden"
+      animate={controls}
+      variants={sectionVariants}
+      className="relative py-20 px-6 md:px-20 bg-gradient-to-b from-gray-900 to-gray-800"
+      id="experience"
+    >
+      {/* Timeline line */}
+      <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-purple-500/20 via-purple-400/50 to-purple-500/20 transform -translate-x-1/2" />
+
+      <div className="max-w-6xl mx-auto">
+        <motion.h2
+          className="text-4xl font-bold text-center mb-20 bg-gradient-to-r from-purple-400 via-purple-300 to-purple-800 bg-clip-text text-transparent"
+          variants={itemVariants}
+        >
+          Professional Journey
+        </motion.h2>
+
+        <div className="relative space-y-20">
+          {experiences.map((exp, index) => (
+            <motion.div
+              key={exp.company}
+              variants={itemVariants}
+              className="relative grid grid-cols-5 gap-10 items-center"
+            >
+              {/* Timeline dot */}
+              <div
+                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 
+                w-6 h-6 rounded-full bg-purple-400 shadow-glow-purple"
+              />
+
+              <motion.div
+                className={`col-span-5 md:col-span-2 p-8 rounded-3xl backdrop-blur-sm 
+                  border border-purple-400/20 bg-gradient-to-b from-gray-800/50 to-gray-900/50
+                  ${index % 2 === 0 ? "md:col-start-1" : "md:col-start-4"}`}
+                whileHover={{ scale: 1.02 }}
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <span className="p-3 bg-purple-400/10 rounded-xl">
+                    {exp.icon}
+                  </span>
+                  <div>
+                    <h3 className="text-xl font-semibold text-purple-300">
+                      {exp.company}
+                    </h3>
+                    <p className="text-gray-400 text-sm">{exp.duration}</p>
+                  </div>
+                </div>
+                <p className="text-gray-300">{exp.description}</p>
+                <div className="mt-4">
+                  <span className="px-3 py-1 text-sm bg-purple-400/20 text-purple-300 rounded-full">
+                    {exp.role}
+                  </span>
+                </div>
+              </motion.div>
+            </motion.div>
+          ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
-export default Experience;
+export default ExperienceSection;

@@ -9,12 +9,12 @@ import { FiGithub, FiExternalLink, FiX } from "react-icons/fi";
 
 // Project 1 Images
 import p1_1 from "../Assets1/Project1/img1.png";
-import p1_2 from "../Assets1/project1/img2.png";
-import p1_3 from "../Assets1/project1/img3.png";
-import p1_4 from "../Assets1/project1/img4.png";
-import p1_5 from "../Assets1/project1/img5.png";
-import p1_6 from "../Assets1/project1/img6.png";
-import p1_7 from "../Assets1/project1/img7.png";
+import p1_2 from "../Assets1/Project1/img2.png";
+import p1_3 from "../Assets1/Project1/img3.png";
+import p1_4 from "../Assets1/Project1/img4.png";
+import p1_5 from "../Assets1/Project1/img5.png";
+import p1_6 from "../Assets1/Project1/img6.png";
+import p1_7 from "../Assets1/Project1/img7.png";
 
 import p2_1 from "../Assets1/Project2/img1.png";
 import p2_2 from "../Assets1/Project2/img2.png";

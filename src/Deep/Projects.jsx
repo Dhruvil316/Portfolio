@@ -8,22 +8,22 @@ import "slick-carousel/slick/slick-theme.css";
 import { FiGithub, FiExternalLink, FiX } from "react-icons/fi";
 
 // Project 1 Images
-import p1_1 from "../Assets1/Project1/img1.png";
-import p1_2 from "../Assets1/Project1/img2.png";
-import p1_3 from "../Assets1/Project1/img3.png";
-import p1_4 from "../Assets1/Project1/img4.png";
-import p1_5 from "../Assets1/Project1/img5.png";
-import p1_6 from "../Assets1/Project1/img6.png";
-import p1_7 from "../Assets1/Project1/img7.png";
+import p1_1 from "/Assets1/Project1/img1.png";
+import p1_2 from "/Assets1/Project1/img2.png";
+import p1_3 from "/Assets1/Project1/img3.png";
+import p1_4 from "/Assets1/Project1/img4.png";
+import p1_5 from "/Assets1/Project1/img5.png";
+import p1_6 from "/Assets1/Project1/img6.png";
+import p1_7 from "/Assets1/Project1/img7.png";
 
-import p2_1 from "../Assets1/Project2/img1.png";
-import p2_2 from "../Assets1/Project2/img2.png";
-import p2_3 from "../Assets1/Project2/img3.png";
-import p2_4 from "../Assets1/Project2/img4.png";
+import p2_1 from "/Assets1/Project2/img1.png";
+import p2_2 from "/Assets1/Project2/img2.png";
+import p2_3 from "/Assets1/Project2/img3.png";
+import p2_4 from "/Assets1/Project2/img4.png";
 
-import YT from "../Assets/YT.png";
-import JPNU from "../Assets/JPNU.png";
-import DNN from "../Assets/DNN.png";
+import YT from "/Assets/YT.png";
+import JPNU from "/Assets/JPNU.png";
+import DNN from "/Assets/DNN.png";
 
 const project1Images = [p1_1, p1_2, p1_3, p1_4, p1_5, p1_6, p1_7];
 const project2Images = [p2_1, p2_2, p2_3, p2_4];
@@ -33,34 +33,38 @@ const projectsData = [
   {
     id: 1,
     title: "Campus Placement Portal for College",
-    description: "A comprehensive portal connecting students with recruiters, featuring real-time notifications and analytics dashboard.",
+    description:
+      "A comprehensive portal connecting students with recruiters, featuring real-time notifications and analytics dashboard.",
     images: project1Images,
     thumbnail: JPNU,
     githubLink: "https://github.com/Dboy3/JPNU/tree/updatedproject",
-    techStack: ["React", "Node.js", "MongoDB","JWT" ,"Express" , "Tailwind"]
+    techStack: ["React", "Node.js", "MongoDB", "JWT", "Express", "Tailwind"],
   },
   {
     id: 2,
     title: "MyTube",
-    description: "YouTube clone with advanced video streaming features and personalized recommendations.",
+    description:
+      "YouTube clone with advanced video streaming features and personalized recommendations.",
     images: project2Images,
     thumbnail: YT,
     githubLink: "https://github.com/Dboy3/Youtube_clone",
     liveLink: "https://youtube-clone-orcin-alpha.vercel.app/",
-    techStack: ["React", "API", "Javascript", "Material UI"]
+    techStack: ["React", "API", "Javascript", "Material UI"],
   },
   {
     id: 3,
     title: "Landcover-classification-using-Hyper-Spectral-Imagery",
-    description: "Deep learning model for satellite image classification using PyTorch.",
+    description:
+      "Deep learning model for satellite image classification using PyTorch.",
     images: project3Images,
     thumbnail: DNN,
-    githubLink: "https://github.com/Dboy3/Landcover-classification-using-Hyper-Spectral-Imagery",
-    techStack: ["Neural Networks", "Deep Learning" ,"Digital Image Processing"]
+    githubLink:
+      "https://github.com/Dboy3/Landcover-classification-using-Hyper-Spectral-Imagery",
+    techStack: ["Neural Networks", "Deep Learning", "Digital Image Processing"],
   },
 ];
 
-Modal.setAppElement('#root');
+Modal.setAppElement("#root");
 
 const Projects = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -88,10 +92,10 @@ const Projects = () => {
         settings: {
           arrows: false,
           dots: true,
-          autoplaySpeed: 2000
-        }
-      }
-    ]
+          autoplaySpeed: 2000,
+        },
+      },
+    ],
   };
 
   return (
@@ -141,7 +145,10 @@ const Projects = () => {
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {project.techStack?.map((tech, index) => (
-                    <span key={index} className="px-3 py-1 text-xs bg-gray-700 rounded-full text-purple-200">
+                    <span
+                      key={index}
+                      className="px-3 py-1 text-xs bg-gray-700 rounded-full text-purple-200"
+                    >
                       {tech}
                     </span>
                   ))}
@@ -194,7 +201,7 @@ const Projects = () => {
                 />
               )}
             </div>
-            
+
             <div className="p-6">
               <h3 className="text-2xl font-bold text-purple-400 mb-2">
                 {selectedProject.title}
@@ -202,7 +209,7 @@ const Projects = () => {
               <p className="text-purple-200 mb-6 text-base">
                 {selectedProject.description}
               </p>
-              
+
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href={selectedProject.githubLink}
@@ -213,7 +220,7 @@ const Projects = () => {
                   <FiGithub className="text-xl" />
                   View Code
                 </a>
-                
+
                 {selectedProject.liveLink && (
                   <a
                     href={selectedProject.liveLink}
@@ -238,14 +245,14 @@ const Projects = () => {
           left: 0;
           right: 0;
           bottom: 0;
-          background: rgba(0,0,0,0.7);
+          background: rgba(0, 0, 0, 0.7);
           display: flex;
           align-items: center;
           justify-content: center;
           z-index: 1000;
           backdrop-filter: blur(5px);
         }
-        
+
         .modal-content {
           position: relative;
           border: none;

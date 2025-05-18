@@ -6,8 +6,8 @@ import { useEffect } from "react";
 import SocialLinks from "./SocialLinks";
 import AnimatedBackground from "./AnimatedBackground";
 
-import image1 from "../Assets/paint.png";
-import image2 from "../Assets/profile1.png";
+import image1 from "/Assets/paint.png";
+import image2 from "/Assets/profile1.png";
 
 const Hero = () => {
   const profileVariants = {

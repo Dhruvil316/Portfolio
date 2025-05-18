@@ -8,18 +8,18 @@ import "slick-carousel/slick/slick-theme.css";
 import { FiGithub, FiExternalLink, FiX } from "react-icons/fi";
 
 // Project 1 Images
-import p1_1 from "../Assets1/Project1/1.png";
-import p1_2 from "../Assets1/project1/2.png";
-import p1_3 from "../Assets1/project1/3.png";
-import p1_4 from "../Assets1/project1/4.png";
-import p1_5 from "../Assets1/project1/5.png";
-import p1_6 from "../Assets1/project1/6.png";
-import p1_7 from "../Assets1/project1/7.png";
+import p1_1 from "../Assets1/Project1/img1.png";
+import p1_2 from "../Assets1/project1/img2.png";
+import p1_3 from "../Assets1/project1/img3.png";
+import p1_4 from "../Assets1/project1/img4.png";
+import p1_5 from "../Assets1/project1/img5.png";
+import p1_6 from "../Assets1/project1/img6.png";
+import p1_7 from "../Assets1/project1/img7.png";
 
-import p2_1 from "../Assets1/Project2/1.png";
-import p2_2 from "../Assets1/Project2/2.png";
-import p2_3 from "../Assets1/Project2/3.png";
-import p2_4 from "../Assets1/Project2/4.png";
+import p2_1 from "../Assets1/Project2/img1.png";
+import p2_2 from "../Assets1/Project2/img2.png";
+import p2_3 from "../Assets1/Project2/img3.png";
+import p2_4 from "../Assets1/Project2/img4.png";
 
 import YT from "../Assets/YT.png";
 import JPNU from "../Assets/JPNU.png";

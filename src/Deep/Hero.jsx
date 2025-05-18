@@ -6,9 +6,6 @@ import { useEffect } from "react";
 import SocialLinks from "./SocialLinks";
 import AnimatedBackground from "./AnimatedBackground";
 
-import image1 from "/Assets/paint.png";
-import image2 from "/Assets/profile1.png";
-
 const Hero = () => {
   const profileVariants = {
     initial: { scale: 0, rotateY: 180 },
@@ -87,21 +84,6 @@ const Hero = () => {
             Software Development Engineer
           </motion.p>
 
-          {/* <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-6 overflow-hidden"
-            variants={boxRevealVariant}
-            initial="hidden"
-            animate={revealControls}
-            transition={{ delay: 0.4 }}
-          >
-            <button className="bg-purple-600 text-white px-5 py-2 rounded-md hover:bg-purple-700 transition">
-              Got a project?
-            </button>
-            <button className="border border-purple-500 text-purple-300 px-5 py-2 rounded-md hover:bg-purple-700 hover:text-white transition">
-              My resume
-            </button>
-          </motion.div> */}
-
           <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-6 overflow-hidden"
             variants={boxRevealVariant}
@@ -141,14 +123,16 @@ const Hero = () => {
           whileHover="hover"
         >
           <img
-            src={image1}
+            src="/Assets/paint.png"
             alt="Background Splash"
+            loading="lazy"
             className="absolute top-7 left-1/2 transform -translate-x-1/2 w-[140%] z-0 pointer-events-none"
           />
           <div className="relative z-10 w-full h-full">
             <img
-              src={image2}
+              src="/Assets/profile1.png"
               alt="Profile"
+              loading="lazy"
               className="w-full h-full object-contain drop-shadow-[0_0_30px_rgba(168,85,247,0.6)]"
             />
           </div>

@@ -7,27 +7,28 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FiGithub, FiExternalLink, FiX } from "react-icons/fi";
 
-// Project 1 Images
-import p1_1 from "/Assets1/Project1/img1.png";
-import p1_2 from "/Assets1/Project1/img2.png";
-import p1_3 from "/Assets1/Project1/img3.png";
-import p1_4 from "/Assets1/Project1/img4.png";
-import p1_5 from "/Assets1/Project1/img5.png";
-import p1_6 from "/Assets1/Project1/img6.png";
-import p1_7 from "/Assets1/Project1/img7.png";
-
-import p2_1 from "/Assets1/Project2/img1.png";
-import p2_2 from "/Assets1/Project2/img2.png";
-import p2_3 from "/Assets1/Project2/img3.png";
-import p2_4 from "/Assets1/Project2/img4.png";
-
 import YT from "/Assets/YT.png";
 import JPNU from "/Assets/JPNU.png";
 import DNN from "/Assets/DNN.png";
 
-const project1Images = [p1_1, p1_2, p1_3, p1_4, p1_5, p1_6, p1_7];
-const project2Images = [p2_1, p2_2, p2_3, p2_4];
-const project3Images = [DNN]; // Only one image
+const project1Images = [
+  "/Assets1/Project1/img1.png",
+  "/Assets1/Project1/img2.png",
+  "/Assets1/Project1/img3.png",
+  "/Assets1/Project1/img4.png",
+  "/Assets1/Project1/img5.png",
+  "/Assets1/Project1/img6.png",
+  "/Assets1/Project1/img7.png",
+];
+
+const project2Images = [
+  "/Assets1/Project2/img1.png",
+  "/Assets1/Project2/img2.png",
+  "/Assets1/Project2/img3.png",
+  "/Assets1/Project2/img4.png",
+];
+
+const project3Images = ["/Assets/DNN.png"];
 
 const projectsData = [
   {
@@ -36,7 +37,7 @@ const projectsData = [
     description:
       "A comprehensive portal connecting students with recruiters, featuring real-time notifications and analytics dashboard.",
     images: project1Images,
-    thumbnail: JPNU,
+    thumbnail: "/Assets/JPNU.png",
     githubLink: "https://github.com/Dboy3/JPNU/tree/updatedproject",
     techStack: ["React", "Node.js", "MongoDB", "JWT", "Express", "Tailwind"],
   },
@@ -46,7 +47,7 @@ const projectsData = [
     description:
       "YouTube clone with advanced video streaming features and personalized recommendations.",
     images: project2Images,
-    thumbnail: YT,
+    thumbnail: "/Assets/YT.png",
     githubLink: "https://github.com/Dboy3/Youtube_clone",
     liveLink: "https://youtube-clone-orcin-alpha.vercel.app/",
     techStack: ["React", "API", "Javascript", "Material UI"],
@@ -57,7 +58,7 @@ const projectsData = [
     description:
       "Deep learning model for satellite image classification using PyTorch.",
     images: project3Images,
-    thumbnail: DNN,
+    thumbnail: "/Assets/DNN.png",
     githubLink:
       "https://github.com/Dboy3/Landcover-classification-using-Hyper-Spectral-Imagery",
     techStack: ["Neural Networks", "Deep Learning", "Digital Image Processing"],
@@ -135,6 +136,8 @@ const Projects = () => {
                 <img
                   src={project.thumbnail}
                   alt={project.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-48 object-cover transform transition-all duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent" />
@@ -188,6 +191,8 @@ const Projects = () => {
                       <img
                         src={img}
                         alt={`${selectedProject.title} - ${index + 1}`}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-64 sm:h-96 object-contain bg-gradient-to-br from-gray-900 to-gray-800 mx-auto p-4 rounded-lg"
                       />
                     </div>
@@ -197,6 +202,8 @@ const Projects = () => {
                 <img
                   src={selectedProject.images[0]}
                   alt={selectedProject.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-64 sm:h-96 object-contain bg-gradient-to-br from-gray-900 to-gray-800 mx-auto p-4 rounded-lg"
                 />
               )}

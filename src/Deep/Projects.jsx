@@ -142,7 +142,7 @@ const Projects = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent" />
               </div>
-              <div className="p-4">
+              {/* <div className="p-4">
                 <h3 className="text-xl font-semibold bg-gradient-to-r from-purple-300 to-purple-400 bg-clip-text text-transparent mb-2">
                   {project.title}
                 </h3>
@@ -156,6 +156,25 @@ const Projects = () => {
                     </span>
                   ))}
                 </div>
+              </div> */}
+
+              <div className="p-4">
+                <h3 className="text-xl font-semibold bg-gradient-to-r from-purple-300 to-purple-400 bg-clip-text text-transparent mb-2">
+                  {project.title}
+                </h3>
+                <div className="flex flex-wrap gap-2 mb-3">
+                  {project.techStack?.map((tech, index) => (
+                    <span
+                      key={index}
+                      className="px-3 py-1 text-xs bg-gray-700 rounded-full text-purple-200"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                <p className="text-sm text-gray-400 italic">
+                  Click to view details
+                </p>
               </div>
             </div>
           </motion.div>

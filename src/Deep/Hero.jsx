@@ -40,7 +40,7 @@ const Hero = () => {
   });
 
   const handleResumeClick = () => {
-    const resumeUrl = 'https://drive.google.com/file/d/1lhhjShR7p2zt3-RPAabxThqaKtob7iJX/view?usp=sharing';
+    const resumeUrl = 'https://drive.google.com/file/d/1AYdfA5hTfrKfFYXfthidEZAnv61D_AT0/view?usp=sharing';
     window.open(resumeUrl, '_blank');
   };
 

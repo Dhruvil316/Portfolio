@@ -12,7 +12,7 @@ const skillsData = [
   {
     title: "Backend",
     icon: <Server size={20} />,
-    technologies: ["Node.js", "Express.js", "MVC design patterns" , "JWT" ],
+    technologies: ["Java" , "Springboot" ,  "Node.js", "Express.js", "MVC design patterns" , "JWT" ],
   },
   {
     title: "Database",

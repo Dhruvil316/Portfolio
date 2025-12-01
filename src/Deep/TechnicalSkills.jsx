@@ -17,7 +17,7 @@ const skillsData = [
   {
     title: "Database",
     icon: <Database size={20} />,
-    technologies: ["MongoDB", "PostgreSQL"],
+    technologies: ["MongoDB", "SQL"],
   },
   {
     title: "CS-fundamentals",
